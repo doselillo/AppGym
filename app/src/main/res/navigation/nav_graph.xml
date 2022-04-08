@@ -9,5 +9,73 @@
         android:id="@+id/menuFragment"
         android:name="com.example.appgym.MenuFragment"
         android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" />
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_clasesFragment"
+            app:destination="@id/clasesFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_competicionesFragment"
+            app:destination="@id/competicionesFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment"
+            app:popUpTo="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clasesFragment"
+        android:name="com.example.appgym.ClasesFragment"
+        android:label="fragment_clases"
+        tools:layout="@layout/fragment_clases" >
+        <action
+            android:id="@+id/action_clasesFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/menuFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_clasesFragment_to_reservaFragment"
+            app:destination="@id/diaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/competicionesFragment"
+        android:name="com.example.appgym.CompeticionesFragment"
+        android:label="fragment_competiciones"
+        tools:layout="@layout/fragment_competiciones" >
+        <action
+            android:id="@+id/action_competicionesFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/menuFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.example.appgym.PerfilFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_perfilFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/diaFragment"
+        android:name="com.example.appgym.ReservaFragment"
+        android:label="fragment_dia"
+        tools:layout="@layout/fragment_dia">
+        <action
+            android:id="@+id/action_reservaFragment_to_clasesFragment"
+            app:destination="@id/clasesFragment"
+            app:popUpTo="@id/clasesFragment" />
+        <action
+            android:id="@+id/action_reservaFragment_to_horaFragment"
+            app:destination="@id/horaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/horaFragment"
+        android:name="com.example.appgym.HoraFragment"
+        android:label="fragment_hora"
+        tools:layout="@layout/fragment_hora" >
+        <action
+            android:id="@+id/action_horaFragment_to_reservaFragment"
+            app:destination="@id/diaFragment"
+            app:popUpTo="@id/diaFragment" />
+    </fragment>
 </navigation>
