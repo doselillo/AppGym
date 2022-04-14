@@ -8,5 +8,9 @@
     <string name="label_hour">Hour</string>
     <string name="label_profile">Profile</string>
     <string name="label_competitions">Competitions</string>
+    <string name="classes_menu">CLASSES</string>
+    <string name="competitions_menu">COMPETITIONS</string>
+    <string name="profile_menu">PROFILE</string>
+    <string name="name_profile_text">Name:</string>
 
 </resources>
