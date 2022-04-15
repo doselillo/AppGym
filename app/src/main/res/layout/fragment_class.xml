@@ -13,75 +13,11 @@
         android:layout_margin="@dimen/text_margin"
         android:paddingTop="@dimen/side_margins">
 
-        <!--<LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/side_margins">
-
-            <TextView
-                android:id="@+id/bodypumpTextview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/bodypump_class_text"
-                android:textSize="@dimen/text_classes"
-                android:layout_marginEnd="@dimen/side_margins"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_classes"
-                android:text="@string/bodypump_number"
-                android:layout_marginEnd="@dimen/side_margins"/>
-
-                <CheckBox
-                    android:id="@+id/checkboxBodypump"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/side_margins">
-
-                <TextView
-                    android:id="@+id/boxingTextview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/side_margins"
-                    android:text="@string/boxing_classes_text"
-                    android:textSize="@dimen/text_classes" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/side_margins"
-                    android:text="@string/bodypump_number"
-                    android:textSize="@dimen/text_classes" />
-
-                <CheckBox
-                    android:id="@+id/checkboxBoxing"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-
-            </LinearLayout>
-
-
-        </LinearLayout>-->
 
         <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:stretchColumns="*"
             >
             <TableRow>
@@ -157,6 +93,247 @@
                     android:gravity="center" />
 
             </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/classTwoTextView"
+                    android:layout_marginTop="@dimen/side_margins"
+                    android:layout_weight="2"
+
+                    android:padding="3dip"
+                    android:text="@string/class_two"
+                    android:textSize="@dimen/text_classes" />
+
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/dayOneClassTwoTextView"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text="@string/day_two_class_one"
+                    android:textSize="@dimen/subtext_classes" />
+
+                <TextView
+                    android:id="@+id/hourOneClassTwoTextView"
+                    android:gravity="start"
+                    android:padding="3dip"
+                    android:text="@string/hour_one_class_two"
+                    android:textSize="@dimen/subtext_classes" />
+
+                <TextView
+                    android:id="@+id/capacityOneClassTwoTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:padding="3dip"
+                    android:text="@string/capacity_one_class_two"
+                    android:textSize="@dimen/subtext_classes" />
+                <CheckBox
+                    android:id="@+id/checkboxOneClassTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/dayTwoClassTwoTextView"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text="@string/day_two_class_two"
+                    android:textSize="@dimen/subtext_classes" />
+
+                <TextView
+                    android:id="@+id/hourTwoClassTwoTextView"
+                    android:gravity="start"
+                    android:padding="3dip"
+                    android:text="@string/hour_two_class_two"
+                    android:textSize="@dimen/subtext_classes" />
+
+                <TextView
+                    android:id="@+id/capacityTwoClassTwoTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:padding="3dip"
+                    android:text="@string/capacity_two_class_two"
+                    android:textSize="@dimen/subtext_classes" />
+                <CheckBox
+                    android:id="@+id/checkboxTwoClassTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center" />
+
+            </TableRow>
+
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/classThreeTextView"
+                    android:layout_marginTop="@dimen/side_margins"
+                    android:layout_weight="2"
+                    android:padding="3dip"
+                    android:text="@string/class_three"
+                    android:textSize="@dimen/text_classes" />
+
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/dayOneClassThreeTextView"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text="@string/day_two_class_three"
+                    android:textSize="@dimen/subtext_classes" />
+
+                <TextView
+                    android:id="@+id/hourOneClassThreeTextView"
+                    android:gravity="start"
+                    android:padding="3dip"
+                    android:text="@string/hour_one_class_three"
+                    android:textSize="@dimen/subtext_classes" />
+
+                <TextView
+                    android:id="@+id/capacityOneClassThreeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:padding="3dip"
+                    android:text="@string/capacity_one_class_three"
+                    android:textSize="@dimen/subtext_classes" />
+                <CheckBox
+                    android:id="@+id/checkboxOneClassThree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/dayTwoClassThreeTextView"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text="@string/day_two_class_three"
+                    android:textSize="@dimen/subtext_classes" />
+
+                <TextView
+                    android:id="@+id/hourTwoClassThreeTextView"
+                    android:gravity="start"
+                    android:padding="3dip"
+                    android:text="@string/hour_two_class_three"
+                    android:textSize="@dimen/subtext_classes" />
+
+                <TextView
+                    android:id="@+id/capacityTwoClassThreeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:padding="3dip"
+                    android:text="@string/capacity_two_class_three"
+                    android:textSize="@dimen/subtext_classes" />
+                <CheckBox
+                    android:id="@+id/checkboxTwoClassThree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/classFourTextView"
+                    android:layout_marginTop="@dimen/side_margins"
+                    android:layout_weight="2"
+                    android:padding="3dip"
+                    android:text="@string/class_four"
+                    android:textSize="@dimen/text_classes" />
+
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/dayOneClassFourTextView"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text="@string/day_two_class_four"
+                    android:textSize="@dimen/subtext_classes" />
+
+                <TextView
+                    android:id="@+id/hourOneClassFourTextView"
+                    android:gravity="start"
+                    android:padding="3dip"
+                    android:text="@string/hour_one_class_four"
+                    android:textSize="@dimen/subtext_classes" />
+
+                <TextView
+                    android:id="@+id/capacityOneClassFourTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:padding="3dip"
+                    android:text="@string/capacity_one_class_four"
+                    android:textSize="@dimen/subtext_classes" />
+                <CheckBox
+                    android:id="@+id/checkboxOneClassFour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/dayTwoClassFourTextView"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text="@string/day_two_class_four"
+                    android:textSize="@dimen/subtext_classes" />
+
+                <TextView
+                    android:id="@+id/hourTwoClassFourTextView"
+                    android:gravity="start"
+                    android:padding="3dip"
+                    android:text="@string/hour_two_class_four"
+                    android:textSize="@dimen/subtext_classes" />
+
+                <TextView
+                    android:id="@+id/capacityTwoClassFourTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:padding="3dip"
+                    android:text="@string/capacity_two_class_four"
+                    android:textSize="@dimen/subtext_classes" />
+                <CheckBox
+                    android:id="@+id/checkboxTwoClassFour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center" />
+
+            </TableRow>
+
+
         </TableLayout>
 
 

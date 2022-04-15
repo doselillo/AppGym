@@ -29,5 +29,26 @@
     <string name="hour_one_class_one">10:00</string>
     <string name="day_two_class_one">WEDNESDAY</string>
     <string name="hour_two_class_one">16:00</string>
+    <string name="class_two">BOXING</string>
+    <string name="day_one_class_two">TUESDAY</string>
+    <string name="hour_one_class_two">11:00</string>
+    <string name="capacity_one_class_two">%s/25</string>
+    <string name="day_two_class_two">FRIDAY</string>
+    <string name="hour_two_class_two">17:00</string>
+    <string name="capacity_two_class_two">%s/25</string>
+    <string name="class_three">YOGA</string>
+    <string name="day_one_class_three">MONDAY</string>
+    <string name="hour_one_class_three">12:00</string>
+    <string name="capacity_one_class_three">%s/25</string>
+    <string name="day_two_class_three">THURSDAY</string>
+    <string name="hour_two_class_three">18:00</string>
+    <string name="capacity_two_class_three">%s/25</string>
+    <string name="class_four">PILATES</string>
+    <string name="day_one_class_four">WEDNESDAY</string>
+    <string name="hour_one_class_four">12:00</string>
+    <string name="capacity_one_class_four">%s/25</string>
+    <string name="day_two_class_four">FRIDAY</string>
+    <string name="hour_two_class_four">19:00</string>
+    <string name="capacity_two_class_four">%s/25</string>
 
 </resources>
