@@ -1,14 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".PerfilFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".PerfilFragment">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginTop="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"
+                android:layout_marginBottom="@dimen/side_margins"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/nameProfileText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/name_profile_text" />
+
+                    <EditText
+                        android:id="@+id/nameProfileEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="name"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:maxLength="100" />
+
+                    <TextView
+                        android:id="@+id/surnameProfileText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/text_margin"
+                        android:text="@string/surname_profile_text" />
+
+                    <EditText
+                        android:id="@+id/surnameProfileEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="name"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:maxLength="100" />
+
+                    <TextView
+                        android:id="@+id/dobProfileText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/text_margin"
+                        android:text="@string/date_of_birth_profile_text" />
+
+                    <EditText
+                        android:id="@+id/dobProfileEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="date"
+                        android:maxEms="10"
+                        android:maxLength="10" />
+
+                    <TextView
+                        android:id="@+id/sexProfileText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/text_margin"
+                        android:text="@string/sex_profile_text" />
+
+                        <RadioGroup
+                            android:id="@+id/sexRadioGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+
+                            <RadioButton
+                                android:id="@+id/maleRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Male"
+                                android:layout_marginEnd="@dimen/side_margins"/>
+
+                            <RadioButton
+                                android:id="@+id/femaleRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Female"/>
+
+
+                        </RadioGroup>
+
+
+
+                    <TextView
+                        android:id="@+id/heightProfileText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/text_margin"
+                        android:text="@string/height_profile_text" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/heightProfileEdit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:maxEms="3"
+                            android:maxLength="3"
+                            android:minEms="2"
+                            android:textAlignment="viewEnd" />
+
+                        <TextView
+                            android:id="@+id/cmProfileText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cm_profile_text" />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/weightProfileText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/text_margin"
+                        android:text="@string/weight_profile_text" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/weightProfileEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="numberDecimal"
+                            android:maxEms="3"
+                            android:maxLength="5"
+                            android:minEms="2"
+                            android:textAlignment="viewEnd" />
+
+                        <TextView
+                            android:id="@+id/kgProfileText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/kg_profile_text" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/emailProfileText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/text_margin"
+                        android:text="@string/email_profile_text" />
+
+                    <EditText
+                        android:id="@+id/emailProfileEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="name"
+                        android:ems="10"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="100" />
+
+                    <TextView
+                        android:id="@+id/phoneProfileText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/text_margin"
+                        android:text="@string/phone_profile_text" />
+
+                    <EditText
+                        android:id="@+id/phoneProfileEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="name"
+                        android:ems="10"
+                        android:inputType="phone"
+                        android:maxLength="50" />
+
+
+
+
+
+
+
+
+                </LinearLayout>
+            </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

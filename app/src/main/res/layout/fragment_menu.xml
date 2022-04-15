@@ -47,12 +47,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
                     android:background="#000000"
                     android:backgroundTint="#00FFFFFF"
                     android:clickable="true"
                     android:visibility="visible"
-                    android:onClick="@{() -> menuFragment.goToNextScreen()}">
+                    android:onClick="@{() -> menuFragment.goToNextScreen(1)}">
 
                     <LinearLayout
                         android:layout_width="180dp"
@@ -74,7 +74,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:paddingTop="16dp"
-                            android:text=""
+                            android:text="@string/classes_menu"
                             android:textAlignment="center"
                             android:textAppearance="?attr/textAppearanceHeadline6"
                             android:textColor="@color/white"
@@ -88,12 +88,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
                     android:background="#000000"
                     android:backgroundTint="#00FFFFFF"
                     android:clickable="true"
                     android:padding="12dp"
-                    android:visibility="visible">
+                    android:visibility="visible"
+                    android:onClick="@{() -> menuFragment.goToNextScreen(2)}">
 
                     <LinearLayout
                         android:layout_width="180dp"
@@ -115,7 +116,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:paddingTop="16dp"
-                            android:text=""
+                            android:text="@string/competitions_menu"
                             android:textAppearance="?attr/textAppearanceHeadline6"
                             android:textColor="@color/white"
                             tools:text="COMPETITIONS" />
@@ -133,7 +134,8 @@
                 android:background="#000000"
                 android:backgroundTint="#00FFFFFF"
                 android:clickable="true"
-                android:visibility="visible">
+                android:visibility="visible"
+                android:onClick="@{() -> menuFragment.goToNextScreen(3)}">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -155,7 +157,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:paddingTop="16dp"
-                        android:text=""
+                        android:text="@string/profile_menu"
                         android:textAppearance="?attr/textAppearanceHeadline6"
                         android:textColor="@color/white"
                         tools:text="PROFILE" />

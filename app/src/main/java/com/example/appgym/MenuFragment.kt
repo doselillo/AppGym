@@ -35,8 +35,12 @@ class MenuFragment : Fragment() {
         }
     }
 
-    fun goToNextScreen(){
-        findNavController().navigate(R.id.action_menuFragment_to_classFragment)
+    fun goToNextScreen(num: Int){
+        when(num){
+            1 -> findNavController().navigate(R.id.action_menuFragment_to_classFragment)
+            2 -> findNavController().navigate(R.id.action_menuFragment_to_competitionsFragment)
+            3 -> findNavController().navigate(R.id.action_menuFragment_to_profileFragment)
+        }
     }
 
 }
