@@ -2,4 +2,6 @@
 <resources>
     <dimen name="text_margin">16dp</dimen>
     <dimen name="side_margins">50dp</dimen>
+    <dimen name="text_classes">24sp</dimen>
+    <dimen name="subtext_classes">18sp</dimen>
 </resources>

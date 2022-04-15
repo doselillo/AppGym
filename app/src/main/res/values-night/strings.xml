@@ -7,4 +7,9 @@
     <string name="kg_profile_text">Kg</string>
     <string name="email_profile_text">Email</string>
     <string name="phone_profile_text">Phone</string>
+    <string name="bodypump_class_text">BODY PUMP</string>
+    <string name="boxing_classes_text">BOXING</string>
+    <string name="hour_one_class_one">10:00</string>
+    <string name="day_two_class_one">WEDNESDAY</string>
+    <string name="hour_two_class_one">16:00</string>
 </resources>

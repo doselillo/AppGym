@@ -1,5 +1,7 @@
 package com.example.appgym
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -10,6 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,9 +27,15 @@ class MainActivity : AppCompatActivity() {
         //setupActionBarWithNavController(navController)
         //setupActionBarWithNavController(findNavController(R.id.fragment))
 
-        /*binding.topAppBar.apply {
+
+
+        binding.topAppBar.apply {
 
             setNavigationOnClickListener {
+                dialPhone("123456789")
+                ///////////////////////////////////////////////////////////
+                //no conseguimos que viaje al home fragment
+
 
             }
 
@@ -35,20 +44,29 @@ class MainActivity : AppCompatActivity() {
 
                 when (menuItem.itemId) {
                     R.id.contactIcon -> {
-
+                        dialPhone("123456789")
                         true
                     }
                     else -> false
                 }
             }
 
-        }*/
+        }
 
     }
 
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    fun dialPhone(phoneNumber: String) {
+        val intent = Intent(Intent.ACTION_DIAL).apply {
+            data = Uri.parse("tel:$phoneNumber")
+        }
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
+        }
     }
 
 
