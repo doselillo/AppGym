@@ -29,13 +29,12 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
         binding.topAppBar.apply {
 
             setNavigationOnClickListener {
-                dialPhone("123456789")
-                ///////////////////////////////////////////////////////////
-                //no conseguimos que viaje al home fragment
 
+                navController.navigate(R.id.menuFragment)
 
             }
 
@@ -52,6 +51,8 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+
+
 
     }
 

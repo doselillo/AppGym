@@ -7,9 +7,9 @@
     <string name="label_day">Day</string>
     <string name="label_hour">Hour</string>
     <string name="label_profile">Profile</string>
-    <string name="label_competitions">Competitions</string>
+    <string name="label_competitions">Events</string>
     <string name="classes_menu">CLASSES</string>
-    <string name="competitions_menu">COMPETITIONS</string>
+    <string name="competitions_menu">EVENTS</string>
     <string name="profile_menu">PROFILE</string>
     <string name="name_profile_text">Name:</string>
     <string name="surname_profile_text">Surname:</string>
