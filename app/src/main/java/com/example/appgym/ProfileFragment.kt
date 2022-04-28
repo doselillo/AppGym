@@ -1,60 +1,87 @@
 package com.example.appgym
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.example.appgym.data.User
+import com.example.appgym.data.UserViewModel
+import com.example.appgym.databinding.FragmentProfileBinding
+import kotlinx.android.synthetic.main.fragment_profile.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PerfilFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class PerfilFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    private var _binding: FragmentProfileBinding? = null
 
-    }
+    private val binding get() = _binding!!
+
+    private lateinit var userViewModel: UserViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        //val view = inflater.inflate(R.layout.fragment_profile, container, false)
+
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        val root = binding.root
+
+        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+
+        binding.saveProfilebutton.setOnClickListener {
+            insertDataToDatabase()
+        }
+
+        return root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PerfilFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PerfilFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    private fun insertDataToDatabase() {
+        val name = nameProfileEdit.text.toString()
+        val surname = surnameProfileEdit.text.toString()
+        val dob = dobProfileEdit.text.toString()
+        val sexText = sexRadioGroup.checkedRadioButtonId
+        val sex = checkRadioButton()
+        val height = heightProfileEdit.text.toString()
+        val weight = weightProfileEdit.text.toString()
+        val email = emailProfileEdit.text.toString()
+        val phone = phoneProfileEdit.text.toString()
+
+        if(inputCheck(name, surname, dob, sex, height, weight, email, phone)){
+            //Create User Object
+            val user = User(0, name, surname, dob, sex, height, weight, email, phone)
+            //Add Data to Database
+            userViewModel.addUser(user)
+            Toast.makeText(requireContext(), "Succesfully saved!", Toast.LENGTH_LONG).show()
+        }
+        else{
+            Toast.makeText(requireContext(), "Please fill out all fields", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun inputCheck(name: String, surname: String, dob: String, sex: String, height: String, weight: String, email: String, phone: String): Boolean {
+            return !(TextUtils.isEmpty(name) && TextUtils.isEmpty(surname) && TextUtils.isEmpty(dob) && TextUtils.isEmpty(sex) && TextUtils.isEmpty(height) && TextUtils.isEmpty(weight) && TextUtils.isEmpty(email) && TextUtils.isEmpty(phone))
+    }
+
+    private fun checkRadioButton(): String{
+        //val checkedSex = sexRadioGroup.checkedRadioButtonId
+        val checkedSex = binding.sexRadioGroup.checkedRadioButtonId
+        return when {
+            maleRadioButton.isChecked -> {
+                "male"
             }
+            femaleRadioButton.isChecked -> {
+                "female"
+            }
+            else -> {
+                ""
+            }
+        }
     }
 }

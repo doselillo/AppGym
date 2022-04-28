@@ -12,9 +12,9 @@ data class User (
     val nameU: String,
     val surnameU: String,
     val dateOfBirthU: String,
-    val sexU: Boolean,
-    val heightU: Int,
-    val weightU: Int,
+    val sexU: String,
+    val heightU: String,
+    val weightU: String,
     val emailU: String,
-    val phoneU: Int
+    val phoneU: String
     )

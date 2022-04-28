@@ -4,7 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="perfilFragment"
+            type="com.example.appgym.PerfilFragment" />    
+        
     </data>
 
     <FrameLayout
@@ -24,6 +27,20 @@
             android:layout_height="match_parent">
 
 
+            <Button
+                android:id="@+id/saveProfilebutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_marginBottom="75dp"
+                android:text="@string/save_button_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/scrollView2" />
+
             <ScrollView
                 android:id="@+id/scrollView2"
                 android:layout_width="match_parent"
@@ -31,7 +48,7 @@
                 android:layout_marginStart="@dimen/text_margin"
                 android:layout_marginTop="@dimen/text_margin"
                 android:layout_marginEnd="@dimen/text_margin"
-                android:layout_marginBottom="100dp"
+                android:layout_marginBottom="150dp"
                 android:background="#E4C6C8FD"
                 android:paddingStart="@dimen/text_margin"
                 android:paddingTop="25dp"
@@ -39,7 +56,6 @@
                 android:paddingBottom="25dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0">
@@ -115,13 +131,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/side_margins"
-                            android:text="Male" />
+                            android:text="@string/male_sex_text" />
 
                         <RadioButton
                             android:id="@+id/femaleRadioButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Female" />
+                            android:text="@string/female_sex_text" />
 
 
                     </RadioGroup>
@@ -226,16 +242,6 @@
                 </LinearLayout>
             </ScrollView>
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="Button"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 </layout>
