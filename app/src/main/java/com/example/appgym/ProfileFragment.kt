@@ -26,7 +26,7 @@ class PerfilFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         //val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
@@ -39,6 +39,12 @@ class PerfilFragment : Fragment() {
             insertDataToDatabase()
         }
 
+        /*
+        binding.apply{
+            nameProfileEdit.setText()
+        }
+        */
+
         return root
     }
 
@@ -46,7 +52,6 @@ class PerfilFragment : Fragment() {
         val name = nameProfileEdit.text.toString()
         val surname = surnameProfileEdit.text.toString()
         val dob = dobProfileEdit.text.toString()
-        val sexText = sexRadioGroup.checkedRadioButtonId
         val sex = checkRadioButton()
         val height = heightProfileEdit.text.toString()
         val weight = weightProfileEdit.text.toString()
@@ -70,8 +75,6 @@ class PerfilFragment : Fragment() {
     }
 
     private fun checkRadioButton(): String{
-        //val checkedSex = sexRadioGroup.checkedRadioButtonId
-        val checkedSex = binding.sexRadioGroup.checkedRadioButtonId
         return when {
             maleRadioButton.isChecked -> {
                 "male"
