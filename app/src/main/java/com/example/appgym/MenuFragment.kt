@@ -10,6 +10,7 @@ import com.example.appgym.databinding.FragmentMenuBinding
 
 class MenuFragment : Fragment() {
 
+    //val args: MenuFragmentArgs by navArgs()
     private var _binding: FragmentMenuBinding? = null
     private val binding get() = _binding!!
 
@@ -20,6 +21,8 @@ class MenuFragment : Fragment() {
     ): View? {
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
         val root = binding.root
+        //val email = args.email
+        //menuClassText.text = email
         return root
     }
 

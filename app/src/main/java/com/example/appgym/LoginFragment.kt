@@ -7,14 +7,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.appgym.data.User
 import com.example.appgym.data.UserViewModel
 import com.example.appgym.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_login.*
-import kotlinx.android.synthetic.main.fragment_profile.*
 
 
 class LoginFragment : Fragment() {
@@ -23,6 +22,7 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var userViewModel: UserViewModel
     private var auth: FirebaseAuth = FirebaseAuth.getInstance()
+    private val db = FirebaseFirestore.getInstance()
 
 
 
@@ -62,13 +62,14 @@ class LoginFragment : Fragment() {
 
     fun signUp(){
 
+        val email = emailLoginEdit.text.toString()
         if (emailLoginEdit.text.isNotEmpty() && passwordLoginEdit.text.isNotEmpty()){
             auth.createUserWithEmailAndPassword(
                 emailLoginEdit.text.toString(), passwordLoginEdit.text.toString())
                 .addOnCompleteListener { it ->
 
                 if (it.isSuccessful){
-                    showHome(binding.root)
+                    showHome(email)
 
 
 
@@ -83,27 +84,37 @@ class LoginFragment : Fragment() {
 
 
     fun login() {
+        val email = emailLoginEdit.text.toString()
         if (emailLoginEdit.text.isNotEmpty() && passwordLoginEdit.text.isNotEmpty()){
             auth.signInWithEmailAndPassword(
-                emailLoginEdit.text.toString(), passwordLoginEdit.text.toString()
+                email, passwordLoginEdit.text.toString()
             ).addOnCompleteListener { it ->
 
                 if (it.isSuccessful){
-                    showHome(binding.root)
+                    showHome(email)
 
 
                 }else{
                     Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
                 }
             }
+        }else{
+            Toast.makeText(requireContext(), "Fill all texts", Toast.LENGTH_SHORT).show()
         }
     }
 
 
 
-    private fun showHome(view: View) {
-        val action = LoginFragmentDirections.actionLoginFragmentToMenuFragment(emailProfileEdit.toString())
-        Navigation.findNavController(view).navigate(action)
+    private fun showHome(email: String) {
+        /*val bundle = bundleOf("email" to emailProfileEdit.toString())
+        view.findNavController().navigate(R.id.action_loginFragment_to_menuFragment, bundle)*/
+
+        /*val action = LoginFragmentDirections.actionLoginFragmentToMenuFragment(emailProfileEdit.toString())
+        Navigation.findNavController(view).navigate(action)*/
+
+        db.collection("users").document(email).set(hashMapOf("email" to email))
+
+
         findNavController().navigate(R.id.action_loginFragment_to_menuFragment)
 
     }
