@@ -8,6 +8,10 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.appgym.databinding.ActivityMainBinding
 
+enum class ProviderType{
+    BASIC
+}
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
