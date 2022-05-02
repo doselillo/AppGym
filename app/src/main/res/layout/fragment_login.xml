@@ -1,60 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".LoginFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <data>
+        <variable
+            name="loginFragment"
+            type="com.example.appgym.LoginFragment" />
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="@dimen/text_margin">
-
-
-        <EditText
-            android:id="@+id/emailLoginEdit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:ems="10"
-            android:hint="@string/prompt_email"
-            android:inputType="textEmailAddress"
-            android:minHeight="48dp"
-            android:autofillHints="emailAddress" />
-
-        <EditText
-            android:id="@+id/passwordLoginEdit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:ems="10"
-            android:hint="@string/prompt_password"
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            android:autofillHints="password"/>
+        tools:context=".LoginFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:layout_margin="@dimen/text_margin">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/logInButton"
-                android:layout_width="wrap_content"
+
+            <EditText
+                android:id="@+id/emailLoginEdit"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/text_margin"
-                android:layout_weight="1"
-                android:text="@string/log_in_button_text" />
+                android:ems="10"
+                android:hint="@string/prompt_email"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:autofillHints="emailAddress" />
 
-            <Button
-                android:id="@+id/signUpButton"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/passwordLoginEdit"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/text_margin"
-                android:layout_weight="1"
-                android:text="@string/sign_up_button_text"
-                style="?attr/materialButtonOutlinedStyle"/>
+                android:ems="10"
+                android:hint="@string/prompt_password"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:autofillHints="password" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/logInButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/text_margin"
+                    android:layout_weight="1"
+                    android:text="@string/log_in_button_text"
+                    android:onClick="@{() -> loginFragment.login()}"/>
+
+                <Button
+                    android:id="@+id/signUpButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/text_margin"
+                    android:layout_weight="1"
+                    android:text="@string/sign_up_button_text"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:onClick="@{() -> loginFragment.signUp()}"/>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</FrameLayout>
+    </FrameLayout>
+</layout>

@@ -11,7 +11,6 @@ import com.example.appgym.databinding.FragmentMenuBinding
 class MenuFragment : Fragment() {
 
     private var _binding: FragmentMenuBinding? = null
-
     private val binding get() = _binding!!
 
 

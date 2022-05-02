@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.appgym.data.User
 import com.example.appgym.data.UserViewModel
 import com.example.appgym.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 
 class LoginFragment : Fragment() {
@@ -20,6 +22,7 @@ class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
     private lateinit var userViewModel: UserViewModel
+    private var auth: FirebaseAuth = FirebaseAuth.getInstance()
 
 
 
@@ -32,9 +35,17 @@ class LoginFragment : Fragment() {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val root = binding.root
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        return root
+    }
 
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.apply {
+            loginFragment = this@LoginFragment
+        }
+
+        // Buttons
+        /*binding.apply {
             signUpButton.setOnClickListener {
                 signUp()
 
@@ -43,24 +54,46 @@ class LoginFragment : Fragment() {
                 login()
             }
 
-        }
+        }*/
 
-        return root
+
     }
 
-    private fun login() {
+
+    fun signUp(){
+
         if (emailLoginEdit.text.isNotEmpty() && passwordLoginEdit.text.isNotEmpty()){
-            FirebaseAuth.getInstance().signInWithEmailAndPassword(
-                emailLoginEdit.text.toString(), passwordLoginEdit.text.toString()
-            ).addOnCompleteListener {
+            auth.createUserWithEmailAndPassword(
+                emailLoginEdit.text.toString(), passwordLoginEdit.text.toString())
+                .addOnCompleteListener { it ->
 
                 if (it.isSuccessful){
-                    showHome(it.result?.user?.email?: "", ProviderType.BASIC)
-                    findNavController().navigate(R.id.action_loginFragment_to_menuFragment)
+                    showHome(binding.root)
+
 
 
                 }else{
-                    Toast.makeText(requireContext(), "Error", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }else{
+            Toast.makeText(requireContext(), "Fill all texts", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+    fun login() {
+        if (emailLoginEdit.text.isNotEmpty() && passwordLoginEdit.text.isNotEmpty()){
+            auth.signInWithEmailAndPassword(
+                emailLoginEdit.text.toString(), passwordLoginEdit.text.toString()
+            ).addOnCompleteListener { it ->
+
+                if (it.isSuccessful){
+                    showHome(binding.root)
+
+
+                }else{
+                    Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -68,28 +101,12 @@ class LoginFragment : Fragment() {
 
 
 
-    private fun signUp(){
-        if (emailLoginEdit.text.isNotEmpty() && passwordLoginEdit.text.isNotEmpty()){
-            FirebaseAuth.getInstance().createUserWithEmailAndPassword(
-                emailLoginEdit.text.toString(), passwordLoginEdit.text.toString()
-            ).addOnCompleteListener {
-
-                if (it.isSuccessful){
-                    showHome(it.result?.user?.email?: "", ProviderType.BASIC)
-                    findNavController().navigate(R.id.action_loginFragment_to_menuFragment)
-
-
-                }else{
-                    Toast.makeText(requireContext(), "Error", Toast.LENGTH_LONG).show()
-                }
-            }
-        }
-    }
-
-    private fun showHome(email: String, provider: ProviderType) {
+    private fun showHome(view: View) {
+        val action = LoginFragmentDirections.actionLoginFragmentToMenuFragment(emailProfileEdit.toString())
+        Navigation.findNavController(view).navigate(action)
         findNavController().navigate(R.id.action_loginFragment_to_menuFragment)
 
-        }
+    }
 
 
     private fun insertDataToDatabase() {
