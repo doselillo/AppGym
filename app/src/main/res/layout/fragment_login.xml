@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -13,11 +14,29 @@
         android:layout_height="match_parent"
         tools:context=".LoginFragment">
 
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/gradient__1_" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="125dp"
+            app:srcCompat="@drawable/captura_de_pantalla_2022_04_28_a_las_20_21_17___copia_preview_rev_1" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_margin="@dimen/text_margin">
+            android:layout_marginTop="300dp"
+            android:layout_marginBottom="100dp"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginEnd="@dimen/text_margin">
 
 
             <EditText
@@ -25,22 +44,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/text_margin"
+                android:autofillHints="emailAddress"
                 android:ems="10"
                 android:hint="@string/prompt_email"
                 android:inputType="textEmailAddress"
-                android:minHeight="48dp"
-                android:autofillHints="emailAddress" />
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/passwordLoginEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/text_margin"
+                android:autofillHints="password"
                 android:ems="10"
                 android:hint="@string/prompt_password"
                 android:inputType="textPassword"
-                android:minHeight="48dp"
-                android:autofillHints="password" />
+                android:minHeight="48dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -53,19 +72,24 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/text_margin"
                     android:layout_weight="1"
-                    android:text="@string/log_in_button_text"
-                    android:onClick="@{() -> loginFragment.login()}"/>
+                    android:onClick="@{() -> loginFragment.login()}"
+                    android:text="@string/log_in_button_text" />
 
                 <Button
                     android:id="@+id/signUpButton"
+                    style="?attr/materialButtonOutlinedStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/text_margin"
                     android:layout_weight="1"
+                    android:onClick="@{() -> loginFragment.signUp()}"
                     android:text="@string/sign_up_button_text"
-                    style="?attr/materialButtonOutlinedStyle"
-                    android:onClick="@{() -> loginFragment.signUp()}"/>
+                    android:textColor="@color/secondaryColor" />
+
             </LinearLayout>
+
         </LinearLayout>
+
+
     </FrameLayout>
 </layout>
