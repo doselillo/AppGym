@@ -74,7 +74,7 @@ class LoginFragment : Fragment() {
 
 
                 }else{
-                    Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Email or password incorrect", Toast.LENGTH_SHORT).show()
                 }
             }
         }else{
@@ -95,7 +95,7 @@ class LoginFragment : Fragment() {
 
 
                 }else{
-                    Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Email or password incorrect", Toast.LENGTH_SHORT).show()
                 }
             }
         }else{

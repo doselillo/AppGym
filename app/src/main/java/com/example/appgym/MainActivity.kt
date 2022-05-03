@@ -3,10 +3,12 @@ package com.example.appgym
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.appgym.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
 
 enum class ProviderType{
     BASIC
@@ -31,6 +33,13 @@ class MainActivity : AppCompatActivity() {
         //setupActionBarWithNavController(navController)
         //setupActionBarWithNavController(findNavController(R.id.fragment))
 
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if(destination.id == R.id.loginFragment) {
+                topAppBar.visibility = View.GONE
+            } else {
+                topAppBar.visibility = View.VISIBLE
+            }
+        }
 
 
 
