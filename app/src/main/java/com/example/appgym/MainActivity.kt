@@ -42,19 +42,24 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
+        //toolbar logic
         binding.topAppBar.apply {
 
+            //tome button
             setNavigationOnClickListener {
 
+                //navigates to menu fragment
                 navController.navigate(R.id.menuFragment)
 
             }
 
+            //other buttons
             setOnMenuItemClickListener {
                     menuItem ->
 
                 when (menuItem.itemId) {
+
+                    //when phone button call number
                     R.id.contactIcon -> {
                         dialPhone("123456789")
                         true
