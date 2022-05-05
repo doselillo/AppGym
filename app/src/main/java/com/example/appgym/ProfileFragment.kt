@@ -59,12 +59,11 @@ class PerfilFragment : Fragment() {
         val sex = checkRadioButton()
         val height = heightProfileEdit.text.toString()
         val weight = weightProfileEdit.text.toString()
-        val email = emailProfileEdit.text.toString()
         val phone = phoneProfileEdit.text.toString()
 
-        if(inputCheck(name, surname, dob, sex, height, weight, email, phone)){
+        if(inputCheck(name, surname, dob, sex, height, weight, phone)){
             //Create User Object
-            val user = User(0, name, surname, dob, sex, height, weight, email, phone)
+            val user = User(0, name, surname, dob, sex, height, weight, args.email , phone)
             //Add Data to Database
             userViewModel.addUser(user)
             Toast.makeText(requireContext(), "Succesfully saved!", Toast.LENGTH_LONG).show()
@@ -74,8 +73,8 @@ class PerfilFragment : Fragment() {
         }
     }
 
-    private fun inputCheck(name: String, surname: String, dob: String, sex: String, height: String, weight: String, email: String, phone: String): Boolean {
-            return !(TextUtils.isEmpty(name) && TextUtils.isEmpty(surname) && TextUtils.isEmpty(dob) && TextUtils.isEmpty(sex) && TextUtils.isEmpty(height) && TextUtils.isEmpty(weight) && TextUtils.isEmpty(email) && TextUtils.isEmpty(phone))
+    private fun inputCheck(name: String, surname: String, dob: String, sex: String, height: String, weight: String, phone: String): Boolean {
+            return !(TextUtils.isEmpty(name) && TextUtils.isEmpty(surname) && TextUtils.isEmpty(dob) && TextUtils.isEmpty(sex) && TextUtils.isEmpty(height) && TextUtils.isEmpty(weight)  && TextUtils.isEmpty(phone))
     }
 
     private fun checkRadioButton(): String{

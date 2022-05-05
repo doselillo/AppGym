@@ -18,7 +18,7 @@
     <string name="weight_profile_text">Weight:</string>
     <string name="cm_profile_text">cm</string>
     <string name="kg_profile_text">Kg</string>
-    <string name="email_profile_text">Email:</string>
+    <string name="email_profile_text">email</string>
     <string name="phone_profile_text">Phone:</string>
     <string name="sex_profile_text">Sex:</string>
     <string name="class_one">BODY PUMP</string>
