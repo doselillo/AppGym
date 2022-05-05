@@ -14,4 +14,12 @@ class UserRepository(private val userDao: UserDao) {
         userDao.updateUser(user)
     }
 
+    /*suspend fun showData(email: String){
+        userDao.showData(email)
+    }
+
+    suspend fun getIdU(email: String){
+        userDao.getIdU(email)
+    }*/
+
 }

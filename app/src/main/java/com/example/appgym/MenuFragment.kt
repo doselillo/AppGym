@@ -33,6 +33,7 @@ class MenuFragment : Fragment() {
             email = args.email
         }
 
+
     }
 
     fun goToNextScreen(num: Int, email: String){

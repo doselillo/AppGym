@@ -29,6 +29,18 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
             repository.updateUser(user)
         }
     }
+   /* fun showData(email: String){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.showData(email)
+        }
+    }
+
+    fun getIdU(email: String){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.getIdU(email)
+        }
+    }*/
+
 
 
 

@@ -17,8 +17,11 @@ interface UserDao {
     @Update
     suspend fun updateUser(user: User)
 
-    @Query("SELECT emailU FROM user_table where emailU = :email")
-    suspend fun showData(email: String): String
+    /*@Query("SELECT * FROM user_table WHERE emailU = :email")
+    suspend fun showData(email: String)*/
+
+    /*@Query("SELECT idU FROM user_table WHERE emailU = :email")
+    suspend fun getIdU(email: String): String*/
 
 }
 
