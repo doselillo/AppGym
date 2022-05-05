@@ -69,7 +69,11 @@ class LoginFragment : Fragment() {
                 .addOnCompleteListener { it ->
 
                 if (it.isSuccessful){
+                   /* val user = User(0, "","","","","","",emailLoginEdit.text.toString(),"")
+                    userViewModel.addUser(user)*/
+                        insertDataToDatabase()
                     showHome(email)
+
 
 
 
@@ -106,27 +110,19 @@ class LoginFragment : Fragment() {
 
 
     private fun showHome(email: String) {
-        /*val bundle = bundleOf("email" to emailProfileEdit.toString())
-        view.findNavController().navigate(R.id.action_loginFragment_to_menuFragment, bundle)*/
-
-        /*val action = LoginFragmentDirections.actionLoginFragmentToMenuFragment(emailProfileEdit.toString())
-        Navigation.findNavController(view).navigate(action)*/
-
-        db.collection("users").document(email).set(hashMapOf("email" to email))
 
 
-        findNavController().navigate(R.id.action_loginFragment_to_menuFragment)
+        val action = LoginFragmentDirections.actionLoginFragmentToMenuFragment(email)
+        findNavController().navigate(action)
+
 
     }
 
 
     private fun insertDataToDatabase() {
         val email = emailLoginEdit.text.toString()
-        val password = passwordLoginEdit.text.toString()
-
-
             //Create User Object
-            val user = User(0, "", "", "", "", "", "", email, password)
+            val user = User(0, "", "", "", "", "", "", email, "")
             //Add Data to Database
             userViewModel.addUser(user)
 

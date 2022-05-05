@@ -66,6 +66,14 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/emailProfileText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/text_margin"
+                        android:text="@string/email_profile_text"
+                        android:textAlignment="center"/>
+
+                    <TextView
                         android:id="@+id/nameProfileText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -205,22 +213,6 @@
                             android:text="@string/kg_profile_text" />
 
                     </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/emailProfileText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="@dimen/text_margin"
-                        android:text="@string/email_profile_text" />
-
-                    <EditText
-                        android:id="@+id/emailProfileEdit"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:autofillHints="name"
-                        android:ems="10"
-                        android:inputType="textEmailAddress"
-                        android:maxLength="100" />
 
                     <TextView
                         android:id="@+id/phoneProfileText"

@@ -10,4 +10,16 @@ class UserRepository(private val userDao: UserDao) {
         userDao.addUser(user)
     }
 
+    suspend fun updateUser(user: User){
+        userDao.updateUser(user)
+    }
+
+    /*suspend fun showData(email: String){
+        userDao.showData(email)
+    }
+
+    suspend fun getIdU(email: String){
+        userDao.getIdU(email)
+    }*/
+
 }

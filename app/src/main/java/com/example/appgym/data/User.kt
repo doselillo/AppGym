@@ -18,3 +18,6 @@ data class User (
     val emailU: String?,
     val phoneU: String?
     )
+{
+    constructor() : this(0, "", "", "", "", "", "", "","")
+}
