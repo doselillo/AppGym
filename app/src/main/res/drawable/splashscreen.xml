@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/gradient__1_"/>
+    <item>
+        <bitmap android:src="@drawable/captura_de_pantalla_2022_04_28_a_las_20_21_17___copia_preview_rev_1"
+            android:gravity="center"/>
+    </item>
+</layer-list>

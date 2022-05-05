@@ -33,9 +33,7 @@
             app:destination="@id/menuFragment"
             app:popUpTo="@id/menuFragment"
             app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_classFragment_to_bookFragment"
-            app:destination="@id/dayFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/competitionsFragment"
@@ -62,29 +60,9 @@
             android:name="email"
             app:argType="string" />
     </fragment>
-    <fragment
-        android:id="@+id/dayFragment"
-        android:name="com.example.appgym.ReservaFragment"
-        android:label="@string/label_day"
-        tools:layout="@layout/fragment_day">
-        <action
-            android:id="@+id/action_bookFragment_to_classFragment"
-            app:destination="@id/classFragment"
-            app:popUpTo="@id/classFragment" />
-        <action
-            android:id="@+id/action_bookFragment_to_hourFragment"
-            app:destination="@id/hourFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/hourFragment"
-        android:name="com.example.appgym.HoraFragment"
-        android:label="@string/label_hour"
-        tools:layout="@layout/fragment_hour">
-        <action
-            android:id="@+id/action_hourFragment_to_bookFragment"
-            app:destination="@id/dayFragment"
-            app:popUpTo="@id/dayFragment" />
-    </fragment>
+
+
+
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.appgym.LoginFragment"
