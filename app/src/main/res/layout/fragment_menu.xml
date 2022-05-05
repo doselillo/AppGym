@@ -52,7 +52,7 @@
                     android:backgroundTint="#00FFFFFF"
                     android:clickable="true"
                     android:visibility="visible"
-                    android:onClick="@{() -> menuFragment.goToNextScreen(1)}">
+                    android:onClick="@{() -> menuFragment.goToNextScreen(1, menuFragment.email)}">
 
                     <LinearLayout
                         android:layout_width="180dp"
@@ -95,7 +95,7 @@
                     android:clickable="true"
                     android:padding="12dp"
                     android:visibility="visible"
-                    android:onClick="@{() -> menuFragment.goToNextScreen(2)}">
+                    android:onClick="@{() -> menuFragment.goToNextScreen(2, menuFragment.email)}">
 
                     <LinearLayout
                         android:layout_width="180dp"
@@ -136,7 +136,7 @@
                 android:backgroundTint="#00FFFFFF"
                 android:clickable="true"
                 android:visibility="visible"
-                android:onClick="@{() -> menuFragment.goToNextScreen(3)}">
+                android:onClick="@{() -> menuFragment.goToNextScreen(3, menuFragment.email)}">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -166,6 +166,7 @@
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
+
 
         </LinearLayout>
 

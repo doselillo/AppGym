@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import com.example.appgym.data.User
 import com.example.appgym.data.UserViewModel
 import com.example.appgym.databinding.FragmentProfileBinding
@@ -16,10 +17,10 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 
 class PerfilFragment : Fragment() {
 
+
+    private val args: PerfilFragmentArgs by navArgs()
     private var _binding: FragmentProfileBinding? = null
-
     private val binding get() = _binding!!
-
     private lateinit var userViewModel: UserViewModel
 
 
@@ -29,7 +30,6 @@ class PerfilFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         //val view = inflater.inflate(R.layout.fragment_profile, container, false)
-
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root = binding.root
 
@@ -39,13 +39,17 @@ class PerfilFragment : Fragment() {
             insertDataToDatabase()
         }
 
-        /*
-        binding.apply{
-            nameProfileEdit.setText()
-        }
-        */
-
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.apply {
+            perfilFragment = this@PerfilFragment
+            emailProfileText.text = args.email
+
+        }
+
     }
 
     private fun insertDataToDatabase() {

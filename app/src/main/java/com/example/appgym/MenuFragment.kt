@@ -6,13 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.appgym.databinding.FragmentMenuBinding
 
 class MenuFragment : Fragment() {
 
     //val args: MenuFragmentArgs by navArgs()
+    private val args: MenuFragmentArgs by navArgs()
     private var _binding: FragmentMenuBinding? = null
     private val binding get() = _binding!!
+    lateinit var email: String
 
 
     override fun onCreateView(
@@ -20,24 +23,26 @@ class MenuFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
-        val root = binding.root
-        //val email = args.email
-        //menuClassText.text = email
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             menuFragment = this@MenuFragment
+            email = args.email
         }
+
     }
 
-    fun goToNextScreen(num: Int){
+    fun goToNextScreen(num: Int, email: String){
         when(num){
             1 -> findNavController().navigate(R.id.action_menuFragment_to_classFragment)
             2 -> findNavController().navigate(R.id.action_menuFragment_to_competitionsFragment)
-            3 -> findNavController().navigate(R.id.action_menuFragment_to_profileFragment)
+            3 -> {
+                val action = MenuFragmentDirections.actionMenuFragmentToProfileFragment(email)
+                findNavController().navigate(action)
+            }
         }
     }
 
