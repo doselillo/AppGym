@@ -64,5 +64,9 @@
     <string name="login_failed">"Login failed"</string>
     <string name="log_in_button_text">LOG IN</string>
     <string name="sign_up_button_text">SIGN UP</string>
+    <string name="date_event">Date: %1$s</string>
+    <string name="level_event">Difficulty: %1$s</string>
+    <string name="place_event">Place: %1$s</string>
+    <string name="contact_event">Contact: %1$s</string>
 
 </resources>
