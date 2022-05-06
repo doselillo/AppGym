@@ -30,8 +30,6 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        //setupActionBarWithNavController(navController)
-        //setupActionBarWithNavController(findNavController(R.id.fragment))
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if(destination.id == R.id.loginFragment) {
@@ -45,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         //toolbar logic
         binding.topAppBar.apply {
 
-            //tome button
+            //home button
             setNavigationOnClickListener {
 
                 //navigates to menu fragment

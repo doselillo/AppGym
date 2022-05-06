@@ -21,7 +21,9 @@
             app:destination="@id/profileFragment" />
         <argument
             android:name="email"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue=" " />
     </fragment>
     <fragment
         android:id="@+id/classFragment"
@@ -58,7 +60,8 @@
             app:popUpToInclusive="true" />
         <argument
             android:name="email"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 
 
@@ -70,6 +73,10 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/fui_slide_in_right"
+            app:exitAnim="@anim/fui_slide_out_left"
+            app:popUpTo="@id/menuFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

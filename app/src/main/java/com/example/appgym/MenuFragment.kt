@@ -30,7 +30,7 @@ class MenuFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             menuFragment = this@MenuFragment
-            email = args.email
+            email = args.email.toString()
         }
 
 

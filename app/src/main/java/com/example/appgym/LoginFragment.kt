@@ -71,6 +71,7 @@ class LoginFragment : Fragment() {
                 if (it.isSuccessful){
                    /* val user = User(0, "","","","","","",emailLoginEdit.text.toString(),"")
                     userViewModel.addUser(user)*/
+                    db.collection("users").document(email).set(hashMapOf("email" to email,))
                         insertDataToDatabase()
                     showHome(email)
 
@@ -111,7 +112,7 @@ class LoginFragment : Fragment() {
 
     private fun showHome(email: String) {
 
-
+        //db.collection("users").document(email).set(hashMapOf("email" to email,))
         val action = LoginFragmentDirections.actionLoginFragmentToMenuFragment(email)
         findNavController().navigate(action)
 
@@ -125,6 +126,11 @@ class LoginFragment : Fragment() {
             val user = User(0, "", "", "", "", "", "", email, "")
             //Add Data to Database
             userViewModel.addUser(user)
+            /*val userf = hashMapOf(
+                "email" to email,
+                "name" to "jimmy"
+            )*/
+        //db.collection("users").document(email).set(hashMapOf("email" to email,))
 
 
 

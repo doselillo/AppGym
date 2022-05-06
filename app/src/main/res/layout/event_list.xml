@@ -17,12 +17,13 @@
 
         <ImageView
             android:id="@+id/event_imageView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             android:layout_width="120dp"
             android:layout_height="240dp"
+            android:layout_margin="@dimen/text_margin"
             android:scaleType="centerCrop"
-            android:layout_margin="@dimen/text_margin"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
 
         <TextView
@@ -34,47 +35,52 @@
             android:ems="10"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:layout_constraintStart_toEndOf="@+id/event_imageView"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="EVENT NAME" />
 
         <TextView
             android:id="@+id/date_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginTop="@dimen/text_margin"
+            android:textAppearance="?attr/textAppearanceBody1"
             app:layout_constraintStart_toEndOf="@+id/event_imageView"
             app:layout_constraintTop_toBottomOf="@+id/event_textView"
-            android:layout_marginTop="@dimen/text_margin"
-            android:layout_marginStart="@dimen/text_margin"
-            android:textAppearance="?attr/textAppearanceBody1" />
+            tools:text="DATE" />
 
         <TextView
             android:id="@+id/place_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginTop="@dimen/text_margin"
+            android:textAppearance="?attr/textAppearanceBody1"
             app:layout_constraintStart_toEndOf="@+id/event_imageView"
             app:layout_constraintTop_toBottomOf="@+id/date_textView"
-            android:layout_marginTop="@dimen/text_margin"
-            android:layout_marginStart="@dimen/text_margin"
-            android:textAppearance="?attr/textAppearanceBody1"/>
+            tools:text="PLACE" />
 
         <TextView
             android:id="@+id/level_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginTop="@dimen/text_margin"
+            android:textAppearance="?attr/textAppearanceBody1"
             app:layout_constraintStart_toEndOf="@+id/event_imageView"
             app:layout_constraintTop_toBottomOf="@+id/place_textView"
-            android:layout_marginTop="@dimen/text_margin"
-            android:layout_marginStart="@dimen/text_margin"
-            android:textAppearance="?attr/textAppearanceBody1"/>
+            tools:text="DIFFICULTY" />
 
         <TextView
             android:id="@+id/contact_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginTop="@dimen/text_margin"
+            android:textAppearance="?attr/textAppearanceBody1"
             app:layout_constraintStart_toEndOf="@+id/event_imageView"
             app:layout_constraintTop_toBottomOf="@+id/level_textView"
-            android:layout_marginTop="@dimen/text_margin"
-            android:layout_marginStart="@dimen/text_margin"
-            android:textAppearance="?attr/textAppearanceBody1"/>
+            tools:text="CONTACT" />
 
 
 

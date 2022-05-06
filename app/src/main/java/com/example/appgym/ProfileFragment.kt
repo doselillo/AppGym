@@ -5,13 +5,13 @@ import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
-import com.example.appgym.data.User
 import com.example.appgym.data.UserViewModel
 import com.example.appgym.databinding.FragmentProfileBinding
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 
@@ -22,6 +22,7 @@ class PerfilFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private lateinit var userViewModel: UserViewModel
+    private val db = FirebaseFirestore.getInstance()
 
 
     override fun onCreateView(
@@ -47,13 +48,14 @@ class PerfilFragment : Fragment() {
         binding.apply {
             perfilFragment = this@PerfilFragment
             emailProfileText.text = args.email
+            loadData(args.email.toString())
 
         }
 
     }
 
     private fun insertDataToDatabase() {
-        val name = nameProfileEdit.text.toString()
+        /*val name = nameProfileEdit.text.toString()
         val surname = surnameProfileEdit.text.toString()
         val dob = dobProfileEdit.text.toString()
         val sex = checkRadioButton()
@@ -70,11 +72,50 @@ class PerfilFragment : Fragment() {
         }
         else{
             Toast.makeText(requireContext(), "Please fill out all fields", Toast.LENGTH_LONG).show()
+        }*/
+
+        val users = db.collection("users")
+
+        val updateU = hashMapOf(
+            "name" to nameProfileEdit.text.toString(),
+            "surname" to surnameProfileEdit.text.toString(),
+            "dob" to dobProfileEdit.text.toString(),
+            "sex" to checkRadioButton(),
+            "height" to heightProfileEdit.text.toString(),
+            "weight" to weightProfileEdit.text.toString(),
+            "phone" to phoneProfileEdit.text.toString()
+        )
+        users.document(args.email.toString()).set(updateU)
+
+    }
+
+    private fun loadData(email: String){
+        if (email != null) {
+            db.collection("users").document(email).get().addOnSuccessListener {
+                nameProfileEdit.setText(it.get("name") as String?)
+                surnameProfileEdit.setText(it.get("surname") as String?)
+                dobProfileEdit.setText(it.get("dob") as String?)
+                setRadioGroup(it)
+                heightProfileEdit.setText(it.get("height") as String?)
+                weightProfileEdit.setText(it.get("weight") as String?)
+                phoneProfileEdit.setText(it.get("phone") as String?)
+
+            }
+
         }
     }
 
     private fun inputCheck(name: String, surname: String, dob: String, sex: String, height: String, weight: String, phone: String): Boolean {
             return !(TextUtils.isEmpty(name) && TextUtils.isEmpty(surname) && TextUtils.isEmpty(dob) && TextUtils.isEmpty(sex) && TextUtils.isEmpty(height) && TextUtils.isEmpty(weight)  && TextUtils.isEmpty(phone))
+    }
+
+    private fun setRadioGroup(it: DocumentSnapshot){
+        val radiobutton = (it.get("sex") as String?)
+        if (radiobutton == "female"){
+            femaleRadioButton.isChecked = true
+        } else if(radiobutton == "male"){
+            maleRadioButton.isChecked = true
+        }
     }
 
     private fun checkRadioButton(): String{
