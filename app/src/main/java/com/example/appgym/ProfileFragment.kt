@@ -55,6 +55,7 @@ class PerfilFragment : Fragment() {
     }
 
     private fun insertDataToDatabase() {
+        /***Room***/
         /*val name = nameProfileEdit.text.toString()
         val surname = surnameProfileEdit.text.toString()
         val dob = dobProfileEdit.text.toString()

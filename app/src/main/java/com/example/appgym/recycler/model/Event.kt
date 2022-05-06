@@ -9,7 +9,8 @@ data class Event (
         val date: String,
         val place: String,
         val level: String,
-        val contact: String
+        val contact: String,
+        val emailT: String
 
 
 )

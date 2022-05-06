@@ -38,12 +38,16 @@ class MenuFragment : Fragment() {
 
     fun goToNextScreen(num: Int, email: String){
         when(num){
-            1 -> findNavController().navigate(R.id.action_menuFragment_to_classFragment)
-            2 -> findNavController().navigate(R.id.action_menuFragment_to_competitionsFragment)
-            3 -> {
-                val action = MenuFragmentDirections.actionMenuFragmentToProfileFragment(email)
-                findNavController().navigate(action)
-            }
+            1 -> {val action = MenuFragmentDirections.actionMenuFragmentToClassFragment(email)
+                findNavController().navigate(action)}
+
+                //findNavController().navigate(R.id.action_menuFragment_to_classFragment)
+            2 -> {val action = MenuFragmentDirections.actionMenuFragmentToCompetitionsFragment(email)
+                findNavController().navigate(action)}
+
+                //findNavController().navigate(R.id.action_menuFragment_to_competitionsFragment)
+            3 -> { val action = MenuFragmentDirections.actionMenuFragmentToProfileFragment(email)
+                findNavController().navigate(action) }
         }
     }
 

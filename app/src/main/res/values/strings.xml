@@ -22,8 +22,8 @@
     <string name="phone_profile_text">Phone:</string>
     <string name="sex_profile_text">Sex:</string>
     <string name="class_one">BODY PUMP</string>
-    <string name="capacity_one_class_one">2/25</string>
-    <string name="capacity_two_class_one">25/25</string>
+    <string name="capacity_one_class_one">%s/25</string>
+    <string name="capacity_two_class_one">%s/25</string>
     <string name="boxing_classes_text">BOXING</string>
     <string name="day_one_class_one">MONDAY</string>
     <string name="hour_one_class_one">10:00</string>
