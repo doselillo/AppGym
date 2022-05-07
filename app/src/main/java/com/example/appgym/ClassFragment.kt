@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
@@ -19,7 +20,7 @@ class ClasesFragment : Fragment() {
     private var _binding: FragmentClassBinding? = null
     private val binding get() = _binding!!
     lateinit var email: String
-    //private lateinit var cViewModel: ClassViewModel
+   // private lateinit var cViewModel: ClassViewModel
     private val db = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
@@ -28,6 +29,17 @@ class ClasesFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentClassBinding.inflate(inflater, container, false)
+       // setReservationsC("classes", "reservationsC", "maxReservationsC")
+       // setReservationsCc("classes", "reservationsCc", "maxReservationsCc")
+        //cViewModel = ViewModelProvider(this).get(ClassViewModel::class.java)
+        /*setReservationsC("BODY PUMP", "reservationsC", reservationsOneClassOneTextView)
+        setReservationsC("BODY PUMP", "reservationsCc", reservationsTwoClassOneTextView)
+        setReservationsC("BOXING", "reservationsC", reservationsOneClassTwoTextView)
+        setReservationsC("BOXING", "reservationsCc", reservationsTwoClassTwoTextView)
+        setReservationsC("YOGA", "reservationsC", reservationsOneClassThreeTextView)
+        setReservationsC("YOGA", "reservationsCc", reservationsTwoClassThreeTextView)
+        setReservationsC("PILATES", "reservationsC", reservationsOneClassFourTextView)
+        setReservationsC("PILATES", "reservationsCc", reservationsTwoClassFourTextView)*/
         return binding.root
     }
 
@@ -35,9 +47,15 @@ class ClasesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             clasesFragment = this@ClasesFragment
-
-
         }
+        setReservationsC("BODY PUMP", "reservationsC", reservationsOneClassOneTextView)
+        setReservationsC("BODY PUMP", "reservationsCc", reservationsTwoClassOneTextView)
+        setReservationsC("BOXING", "reservationsC", reservationsOneClassTwoTextView)
+        setReservationsC("BOXING", "reservationsCc", reservationsTwoClassTwoTextView)
+        setReservationsC("YOGA", "reservationsC", reservationsOneClassThreeTextView)
+        setReservationsC("YOGA", "reservationsCc", reservationsTwoClassThreeTextView)
+        setReservationsC("PILATES", "reservationsC", reservationsOneClassFourTextView)
+        setReservationsC("PILATES", "reservationsCc", reservationsTwoClassFourTextView)
 
     }
 
@@ -52,20 +70,34 @@ class ClasesFragment : Fragment() {
         }
     }*/
 
-    private fun resBO() {
+    private fun resBO(view: CheckBox, classe: String , reserv: String) {
 
 
-        when (!checkboxOneClassOne.isChecked) {
+        when (view.isChecked) {
+            true -> {
+                db.collection("classes").document(classe)
+                    .update(reserv, FieldValue.increment(-1))
+            }
+
+            false -> {
+                db.collection("classes").document(classe)
+                    .update(reserv, FieldValue.increment(1))
+            }
+
+
+        }
+
+        /*when(!checkboxTwoClassOne.isChecked){
             true -> {
                 db.collection("classes").document("BODY PUMP")
-                    .update("reservationsC", FieldValue.increment(-1))
+                    .update("reservationsCc", FieldValue.increment(-1))
             }
 
             false -> {
                 db.collection("classes").document("BODY PUMP")
-                    .update("reservationsC", FieldValue.increment(1))
+                    .update("reservationsCc", FieldValue.increment(1))
             }
-        }
+        }*/
 
 
     }
@@ -83,31 +115,60 @@ class ClasesFragment : Fragment() {
             .show()
     }
 
-    fun getReservations(doc: String, reservs: String, maxReservs: String){
+   /*** fun getReservations(doc: String, reservs: String, maxReservs: String, view: CheckBox, viewT: TextView){
 
         val classes = db.collection("classes")
-        classes.document(doc).get().addOnSuccessListener { result ->
+        classes.document(doc).get().addOnSuccessListener{ result ->
             var res = (result.get(reservs) as Long?)
             var resMac = (result.get(maxReservs) as Long?)
             if(res!! < resMac!!){
-                resBO()
-                
+                resBO(view, doc, reservs)
+
             }else{
                 showReservationsScoreDialog()
-                checkboxOneClassOne.isChecked = false
+                view.isChecked = false
             }
-            reservationsOneClassOneTextView.text = (result.get(reservs) as Long?).toString()
+            viewT.text = (result.get(reservs) as Long?).toString()
+            //reservationsTwoClassOneTextView.text = (result.get(reservs) as Long?).toString()
 
         }
 
+        setReservationsC(doc, reservs, viewT)
+
+    }***/
+    fun getReservations(doc: String, reservs: String, maxReservs: String, view: CheckBox, viewT: TextView){
+
+        val classes = db.collection("classes")
+        classes.document(doc).get().addOnSuccessListener{ result ->
+            var res = (result?.get(reservs) as Long?)
+            var resMac = (result?.get(maxReservs) as Long?)
+            if(res!! < resMac!!){
+                resBO(view, doc, reservs)
+
+
+            }else{
+                showReservationsScoreDialog()
+                view.isChecked = false
+            }
+            viewT.text = (result?.get(reservs) as Long?).toString()
+            //reservationsTwoClassOneTextView.text = (result.get(reservs) as Long?).toString()
+
+        }
+
+        setReservationsC(doc, reservs, viewT)
 
     }
 
-    fun setReservations(doc: String, reservs: String, maxReservs: String){
+    fun setReservationsC(doc: String, reservs: String, viewF: TextView){
         val classes = db.collection("classes")
         classes.document(doc).get().addOnSuccessListener{result ->
-            reservationsOneClassOneTextView.text = (result.get(reservs) as Long?).toString()
-
+            viewF.text = (result.get(reservs) as Long?).toString()
+        }
+    }
+    fun setReservationsCc(doc: String, reservs: String, maxReservs: String){
+        val classes = db.collection("classes")
+        classes.document(doc).get().addOnSuccessListener{result ->
+            reservationsTwoClassOneTextView.text = (result.get(reservs) as Long?).toString()
         }
     }
 }

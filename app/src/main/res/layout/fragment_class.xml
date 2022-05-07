@@ -7,6 +7,7 @@
         <variable
             name="clasesFragment"
             type="com.example.appgym.ClasesFragment" />
+
     </data>
 
     <FrameLayout
@@ -75,7 +76,8 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:padding="3dip"
-                        android:textSize="@dimen/subtext_classes" />
+                        android:textSize="@dimen/subtext_classes"
+                        tools:text="10" />
 
                     <TextView
                         android:id="@+id/capacityOneClassOneTextView"
@@ -92,7 +94,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="center"
-                        android:onClick='@{() -> clasesFragment.getReservations("BODY PUMP", "reservationsC", "maxReservationsC")}'
+                        android:onClick='@{() -> clasesFragment.getReservations("BODY PUMP", "reservationsC", "maxReservationsC", checkboxOneClassOne, reservationsOneClassOneTextView)}'
 
                         />
 
@@ -115,12 +117,21 @@
                         android:textSize="@dimen/subtext_classes" />
 
                     <TextView
+                        android:id="@+id/reservationsTwoClassOneTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:padding="3dip"
+                        android:textSize="@dimen/subtext_classes"
+                        tools:text="25" />
+
+                    <TextView
                         android:id="@+id/capacityTwoClassOneTextView"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
                         android:gravity="start"
                         android:padding="3dip"
-                        android:text="@string/capacity_two_class_one"
+                        android:text="/25"
                         android:textSize="@dimen/subtext_classes" />
 
                     <CheckBox
@@ -128,7 +139,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:onClick='@{() -> clasesFragment.getReservations("BODY PUMP", "reservationsCc", "maxReservationsCc", checkboxTwoClassOne, reservationsTwoClassOneTextView)}'
+                        />
 
                 </TableRow>
 
@@ -163,6 +176,15 @@
                         android:textSize="@dimen/subtext_classes" />
 
                     <TextView
+                        android:id="@+id/reservationsOneClassTwoTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:padding="3dip"
+                        android:textSize="@dimen/subtext_classes"
+                        tools:text="17" />
+
+                    <TextView
                         android:id="@+id/capacityOneClassTwoTextView"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
@@ -176,7 +198,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:onClick='@{() -> clasesFragment.getReservations("BOXING", "reservationsC", "maxReservationsC", checkboxOneClassTwo, reservationsOneClassTwoTextView)}'/>
 
                 </TableRow>
 
@@ -197,6 +220,15 @@
                         android:textSize="@dimen/subtext_classes" />
 
                     <TextView
+                        android:id="@+id/reservationsTwoClassTwoTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:padding="3dip"
+                        android:textSize="@dimen/subtext_classes"
+                        tools:text="18" />
+
+                    <TextView
                         android:id="@+id/capacityTwoClassTwoTextView"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
@@ -210,7 +242,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:onClick='@{() -> clasesFragment.getReservations("BOXING", "reservationsCc", "maxReservationsCc", checkboxTwoClassTwo, reservationsTwoClassTwoTextView)}'/>
 
                 </TableRow>
 
@@ -245,6 +278,15 @@
                         android:textSize="@dimen/subtext_classes" />
 
                     <TextView
+                        android:id="@+id/reservationsOneClassThreeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:padding="3dip"
+                        android:text="25"
+                        android:textSize="@dimen/subtext_classes" />
+
+                    <TextView
                         android:id="@+id/capacityOneClassThreeTextView"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
@@ -258,7 +300,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:onClick='@{() -> clasesFragment.getReservations("YOGA", "reservationsC", "maxReservationsC", checkboxOneClassThree, reservationsOneClassThreeTextView)}'/>
 
                 </TableRow>
 
@@ -279,6 +322,15 @@
                         android:textSize="@dimen/subtext_classes" />
 
                     <TextView
+                        android:id="@+id/reservationsTwoClassThreeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:padding="3dip"
+                        android:text="5"
+                        android:textSize="@dimen/subtext_classes" />
+
+                    <TextView
                         android:id="@+id/capacityTwoClassThreeTextView"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
@@ -292,7 +344,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:onClick='@{() -> clasesFragment.getReservations("YOGA", "reservationsCc", "maxReservationsCc", checkboxTwoClassThree, reservationsTwoClassThreeTextView)}'/>
 
                 </TableRow>
 
@@ -326,6 +379,15 @@
                         android:textSize="@dimen/subtext_classes" />
 
                     <TextView
+                        android:id="@+id/reservationsOneClassFourTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:padding="3dip"
+                        android:textSize="@dimen/subtext_classes"
+                        tools:text="10" />
+
+                    <TextView
                         android:id="@+id/capacityOneClassFourTextView"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
@@ -339,7 +401,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:onClick='@{() -> clasesFragment.getReservations("PILATES", "reservationsC", "maxReservationsC", checkboxOneClassFour, reservationsOneClassFourTextView)}'/>
 
                 </TableRow>
 
@@ -360,6 +423,15 @@
                         android:textSize="@dimen/subtext_classes" />
 
                     <TextView
+                        android:id="@+id/reservationsTwoClassFourTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:padding="3dip"
+                        android:textSize="@dimen/subtext_classes"
+                        tools:text="4" />
+
+                    <TextView
                         android:id="@+id/capacityTwoClassFourTextView"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
@@ -373,7 +445,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:onClick='@{() -> clasesFragment.getReservations("PILATES", "reservationsCc", "maxReservationsCc", checkboxTwoClassFour, reservationsTwoClassFourTextView)}'/>
 
                 </TableRow>
 

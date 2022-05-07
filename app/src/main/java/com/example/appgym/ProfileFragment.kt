@@ -54,8 +54,21 @@ class PerfilFragment : Fragment() {
 
     }
 
-    private fun insertDataToDatabase() {
-        /***Room***/
+   private fun insertDataToDatabase() {
+
+       val users = db.collection("users")
+
+       val updateU = hashMapOf(
+           "name" to nameProfileEdit.text.toString(),
+           "surname" to surnameProfileEdit.text.toString(),
+           "dob" to dobProfileEdit.text.toString(),
+           "sex" to checkRadioButton(),
+           "height" to heightProfileEdit.text.toString(),
+           "weight" to weightProfileEdit.text.toString(),
+           "phone" to phoneProfileEdit.text.toString()
+       )
+       users.document(args.email.toString()).set(updateU)
+
         /*val name = nameProfileEdit.text.toString()
         val surname = surnameProfileEdit.text.toString()
         val dob = dobProfileEdit.text.toString()
@@ -75,18 +88,7 @@ class PerfilFragment : Fragment() {
             Toast.makeText(requireContext(), "Please fill out all fields", Toast.LENGTH_LONG).show()
         }*/
 
-        val users = db.collection("users")
 
-        val updateU = hashMapOf(
-            "name" to nameProfileEdit.text.toString(),
-            "surname" to surnameProfileEdit.text.toString(),
-            "dob" to dobProfileEdit.text.toString(),
-            "sex" to checkRadioButton(),
-            "height" to heightProfileEdit.text.toString(),
-            "weight" to weightProfileEdit.text.toString(),
-            "phone" to phoneProfileEdit.text.toString()
-        )
-        users.document(args.email.toString()).set(updateU)
 
     }
 
