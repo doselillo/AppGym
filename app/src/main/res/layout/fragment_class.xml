@@ -56,55 +56,25 @@
                 <TableRow>
 
                     <TextView
-                        android:id="@+id/dayTwoClassOneTextView"
+                        android:id="@+id/dayOneClassOneTextView"
                         android:gravity="center"
                         android:padding="3dip"
                         android:textSize="@dimen/subtext_classes"
-                        android:text="@string/capacity_two_class_one"/>
+                        android:text="@string/day_one_class_one"/>
 
                     <TextView
-                        android:id="@+id/hourTwoClassOneTextView"
+                        android:id="@+id/hourOneClassOneTextView"
                         android:gravity="start"
                         android:padding="3dip"
                         android:text="@string/hour_one_class_one"
                         android:textSize="@dimen/subtext_classes" />
 
                     <TextView
-                        android:id="@+id/capacityTwoClassOneTextView"
+                        android:id="@+id/reservationsOneClassOneTextView"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="start"
+                        android:gravity="end"
                         android:padding="3dip"
-                        android:text="@string/capacity_one_class_one"
-                        android:textSize="@dimen/subtext_classes" />
-
-                    <CheckBox
-                        android:id="@+id/checkboxTwoClassOne"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:gravity="center"
-                        android:checked="true"
-                        android:onClick="@{() -> clasesFragment.resBO()}"
-
-                        />
-
-                </TableRow>
-
-                <TableRow>
-
-                    <TextView
-                        android:id="@+id/dayOneClassOneTextView"
-                        android:gravity="center"
-                        android:padding="3dip"
-                        android:text="@string/day_two_class_one"
-                        android:textSize="@dimen/subtext_classes" />
-
-                    <TextView
-                        android:id="@+id/hourOneClassOneTextView"
-                        android:gravity="start"
-                        android:padding="3dip"
-                        android:text="@string/hour_two_class_one"
                         android:textSize="@dimen/subtext_classes" />
 
                     <TextView
@@ -113,11 +83,48 @@
                         android:layout_weight="1"
                         android:gravity="start"
                         android:padding="3dip"
-                        android:text="@string/capacity_two_class_one"
+                        android:text="/25"
                         android:textSize="@dimen/subtext_classes" />
 
                     <CheckBox
                         android:id="@+id/checkboxOneClassOne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:onClick='@{() -> clasesFragment.getReservations("BODY PUMP", "reservationsC", "maxReservationsC")}'
+
+                        />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/dayTwoClassOneTextView"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="@string/day_two_class_one"
+                        android:textSize="@dimen/subtext_classes" />
+
+                    <TextView
+                        android:id="@+id/hourTwoClassOneTextView"
+                        android:gravity="start"
+                        android:padding="3dip"
+                        android:text="@string/hour_two_class_one"
+                        android:textSize="@dimen/subtext_classes" />
+
+                    <TextView
+                        android:id="@+id/capacityTwoClassOneTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:padding="3dip"
+                        android:text="@string/capacity_two_class_one"
+                        android:textSize="@dimen/subtext_classes" />
+
+                    <CheckBox
+                        android:id="@+id/checkboxTwoClassOne"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"

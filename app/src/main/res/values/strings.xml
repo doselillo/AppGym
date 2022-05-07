@@ -68,5 +68,8 @@
     <string name="level_event">Difficulty: %1$s</string>
     <string name="place_event">Place: %1$s</string>
     <string name="contact_event">Contact: %1$s</string>
+    <string name="error">ERROR</string>
+    <string name="full_reservations">The class is full</string>
+    <string name="exit_dialog">close</string>
 
 </resources>

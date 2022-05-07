@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.appgym.databinding.FragmentClassBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_class.*
@@ -18,6 +19,7 @@ class ClasesFragment : Fragment() {
     private var _binding: FragmentClassBinding? = null
     private val binding get() = _binding!!
     lateinit var email: String
+    //private lateinit var cViewModel: ClassViewModel
     private val db = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
@@ -33,18 +35,13 @@ class ClasesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             clasesFragment = this@ClasesFragment
+
+
         }
-
-
-        /*binding.checkboxOneClassOne.setOnClickListener {
-            db.collection("classes").document("BODY PUMP")
-                .update("reservationsC", FieldValue.increment(1))
-        }*/
-
 
     }
 
-   /* private fun makeReservation(email: String?, classes: String) {
+    /* private fun makeReservation(email: String?, classes: String) {
 
         binding.checkboxOneClassOne.setOnClickListener {
             db.collection("classes").document("BODY PUMP")
@@ -55,37 +52,65 @@ class ClasesFragment : Fragment() {
         }
     }*/
 
-    fun resBO(){
+    private fun resBO() {
 
 
-            /*var control = 1
-            if(control == 1){
-                db.collection("classes").document("BODY PUMP")
-                    .update("reservationsC", FieldValue.increment(1))
-                control-=1
-                Toast.makeText(requireContext(), "mas 1", Toast.LENGTH_SHORT).show()
-            }else if(control == 0){
+        when (!checkboxOneClassOne.isChecked) {
+            true -> {
                 db.collection("classes").document("BODY PUMP")
                     .update("reservationsC", FieldValue.increment(-1))
-                control+=1
-                Toast.makeText(requireContext(), "menos 1", Toast.LENGTH_SHORT).show()
-            }*/
+            }
 
-        when(!checkboxTwoClassOne.isChecked){
-            true -> {db.collection("classes").document("BODY PUMP")
-                .update("reservationsC", FieldValue.increment(-1))
-
-                    Toast.makeText(requireContext(), "menos 1", Toast.LENGTH_SHORT).show()}
             false -> {
                 db.collection("classes").document("BODY PUMP")
                     .update("reservationsC", FieldValue.increment(1))
-
-                Toast.makeText(requireContext(), "mas 1", Toast.LENGTH_SHORT).show()}
             }
         }
-       // Toast.makeText(requireContext(), "$control", Toast.LENGTH_LONG).show()
+
 
     }
+
+
+
+    private fun showReservationsScoreDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(getString(R.string.error))
+            .setMessage(getString(R.string.full_reservations))
+            .setCancelable(true)
+            .setNegativeButton(getString(R.string.exit_dialog)) { _, _ ->
+            }
+
+            .show()
+    }
+
+    fun getReservations(doc: String, reservs: String, maxReservs: String){
+
+        val classes = db.collection("classes")
+        classes.document(doc).get().addOnSuccessListener { result ->
+            var res = (result.get(reservs) as Long?)
+            var resMac = (result.get(maxReservs) as Long?)
+            if(res!! < resMac!!){
+                resBO()
+                
+            }else{
+                showReservationsScoreDialog()
+                checkboxOneClassOne.isChecked = false
+            }
+            reservationsOneClassOneTextView.text = (result.get(reservs) as Long?).toString()
+
+        }
+
+
+    }
+
+    fun setReservations(doc: String, reservs: String, maxReservs: String){
+        val classes = db.collection("classes")
+        classes.document(doc).get().addOnSuccessListener{result ->
+            reservationsOneClassOneTextView.text = (result.get(reservs) as Long?).toString()
+
+        }
+    }
+}
 
 
 
